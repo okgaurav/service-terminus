@@ -9,19 +9,21 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
+import static com.stallion.serviceterminus.model.ModelConstants.NULL_FIELD;
+
 public class CruiseRequestApiDto {
 
     private String cruiseId;
-    @NotNull
+    @NotNull(message = NULL_FIELD)
     private String source;
-    @NotNull
+    @NotNull(message = NULL_FIELD)
     private String destination;
     private List<Terminal> terminalList;
-    @NotNull
+    @NotNull(message = NULL_FIELD)
     private LocalDate startingDate;
     private LocalTime startingTime;
     private LocalDateTime closureDateTime;
-    @NotNull
+    @NotNull(message = NULL_FIELD)
     private Number totalPassengers;
 
     public String getCruiseId() {
