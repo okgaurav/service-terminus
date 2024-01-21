@@ -2,9 +2,10 @@ package com.stallion.serviceterminus.resource;
 
 import com.stallion.serviceterminus.model.api.CruiseRequestApiDto;
 import com.stallion.serviceterminus.model.api.TerminalRequestApiDto;
-import com.stallion.serviceterminus.model.entity.Distance;
-import com.stallion.serviceterminus.model.entity.Properties;
-import com.stallion.serviceterminus.model.entity.TerminusCode;
+import com.stallion.serviceterminus.model.entity.config.City;
+import com.stallion.serviceterminus.model.entity.config.Distance;
+import com.stallion.serviceterminus.model.entity.config.Properties;
+import com.stallion.serviceterminus.model.entity.config.TerminusCode;
 import com.stallion.serviceterminus.service.TerminalService;
 import com.stallion.serviceterminus.utils.StallionResponseHandler;
 import jakarta.validation.Valid;
@@ -15,6 +16,9 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import com.stallion.serviceterminus.mapper.CruiseMapper;
 import com.stallion.serviceterminus.service.CruiseService;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -67,7 +71,8 @@ public class CruiseResource {
     }
 
     @GetMapping
-    public String properties(){
-        return terminusCode.getPlacesCodes().get("HP").toString();
+    public List<String> properties(){
+        return terminusCode.getActualRoutes("DL","SPV").getRoute().stream()
+                .map(a-> terminusCode.getPlacesCodes().get(a.intValue()).getTitle()).collect(Collectors.toList());
     }
 }

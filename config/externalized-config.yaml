@@ -1,4 +1,0 @@
-authorization:
-  permission:
-    GET: ADMIN, SALES
-    PUT: ADMIN

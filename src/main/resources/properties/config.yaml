@@ -15,8 +15,8 @@ distance:
       MNL:
         days: 2
         nights: 3
-        distance: 200
-        time: 4.5
+        distance: 550
+        time: 8.5
         places: 11, 15, 17
       DSL:
         days: 2
@@ -58,37 +58,80 @@ distance:
 stallion:
   default:
     placesCodes:
-      HP:
-        11:
-          title: Shimla
-          uCode: SL
-        15:
-          title: Manali
-          uCode: MNL
-        17:
-          title: "Rohtang Pass"
-          uCode: RP
-        18:
-          title: "Solang Valley"
-          uCode: SLV
-        27:
-          title: Dharamshala
-          uCode: DSL
-        28:
-          title: "Triund Trek"
-          uCode: TT
-        30:
-          title: "McLeod Ganj"
-          uCode: MCG
-        33:
-          title: "Kullu Valley"
-          uCode: KL
-        41:
-          title: "Spiti Valley"
-          uCode: SPV
-        36:
-          title: Dalhousie
-          uCode: DHL
-        44:
-          title: Kinnaur
-          uCode: KIN
+      0:
+        title: Delhi
+        uCode: DL
+        state: DL
+      11:
+        title: Shimla
+        uCode: SL
+        state: HP
+      15:
+        title: Manali
+        uCode: MNL
+        state: HP
+      17:
+        title: "Rohtang Pass"
+        uCode: RP
+        state: HP
+      18:
+        title: "Solang Valley"
+        uCode: SLV
+        state: HP
+      19:
+        title: Kaylong
+        uCode: KYL
+        state: HP
+      27:
+        title: Dharamshala
+        uCode: DSL
+        state: HP
+      28:
+        title: "Triund Trek"
+        uCode: TT
+        state: HP
+      30:
+        title: "McLeod Ganj"
+        uCode: MCG
+        state: HP
+      33:
+        title: "Kullu Valley"
+        uCode: KL
+        state: HP
+      41:
+        title: "Spiti Valley"
+        uCode: SPV
+        state: HP
+      36:
+        title: Dalhousie
+        uCode: DHL
+        state: HP
+      44:
+        title: Kinnaur
+        uCode: KIN
+        state: HP
+      10:
+        title: Chandigarh
+        uCode: CH
+        state: PB
+    motorCodes:
+      BUS: 109
+      BIKE: 110
+      CAR: 111
+      TRAVELLER: 112
+      CARAVAN: 113
+    routes:
+      DL:
+        SPV:
+          route: 0,10,33,15,19,41
+          time: 0,3,2.75,3,2.25,2.5
+        MNL:
+          route: 0,10,33,15
+          time: 0,3,2.75,3
+        #
+  #        MOTOR:
+  #          109: 5
+  #          110: 3
+  #          111: 7
+  #          112: 6
+  #          113: 5

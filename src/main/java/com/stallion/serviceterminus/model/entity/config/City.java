@@ -1,8 +1,19 @@
-package com.stallion.serviceterminus.model.entity;
+package com.stallion.serviceterminus.model.entity.config;
 
 public class City {
     private String title;
     private String uCode;
+
+    private String state;
+
+    public String getState() {
+        return state;
+    }
+
+    public City setState(String state) {
+        this.state = state;
+        return this;
+    }
 
     public String getTitle() {
         return title;

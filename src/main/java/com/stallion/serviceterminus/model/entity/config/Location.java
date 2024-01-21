@@ -1,4 +1,4 @@
-package com.stallion.serviceterminus.model.entity;
+package com.stallion.serviceterminus.model.entity.config;
 
 import java.util.List;
 
