@@ -2,7 +2,7 @@ package com.stallion.serviceterminus.resource;
 
 import com.stallion.serviceterminus.model.api.CruiseRequestApiDto;
 import com.stallion.serviceterminus.model.api.TerminalRequestApiDto;
-import com.stallion.serviceterminus.model.entity.Terminal;
+import com.stallion.serviceterminus.model.entity.Properties;
 import com.stallion.serviceterminus.service.TerminalService;
 import com.stallion.serviceterminus.utils.StallionResponseHandler;
 import jakarta.validation.Valid;
@@ -24,10 +24,12 @@ import static org.springframework.http.HttpStatus.OK;
 public class CruiseResource {
     private final CruiseService cruiseService;
     private final TerminalService terminalService;
+    private final Properties properties;
 
-    public CruiseResource(CruiseService cruiseService, TerminalService terminalService) {
+    public CruiseResource(CruiseService cruiseService, TerminalService terminalService, Properties properties) {
         this.cruiseService = cruiseService;
         this.terminalService = terminalService;
+        this.properties = properties;
     }
 
     @PostMapping
@@ -51,5 +53,15 @@ public class CruiseResource {
     Mono<ResponseEntity<Object>> setTerminal(@PathVariable String id, @RequestBody TerminalRequestApiDto terminal){
         return terminalService.addTerminalByAccountId(terminal,id)
                 .map(o->  StallionResponseHandler.responseBuilder("Instance saved in list", OK,o));
+    }
+    @DeleteMapping("/{id}/terminals/{terminalId}")
+    Mono<ResponseEntity<Object>> dropTerminal(@PathVariable String id, @PathVariable String terminalId){
+        return terminalService.dropTerminal(id,terminalId)
+                .map(o->  StallionResponseHandler.responseBuilder("Instance removed from list", OK,o));
+    }
+
+    @GetMapping
+    public String properties(){
+        return properties.getPermission().toString();
     }
 }

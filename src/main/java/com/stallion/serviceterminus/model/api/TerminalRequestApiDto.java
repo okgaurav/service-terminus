@@ -31,6 +31,11 @@ public class TerminalRequestApiDto {
     private LocalDate startingDate;
     private LocalTime startingTime;
     private LocalDateTime operationClosure;
+    /*
+    * position = N : insert at Nth position from beginning
+    * position = null : insert at last position
+    * */
+
     @Nullable
     private Number position;
 
