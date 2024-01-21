@@ -2,3 +2,93 @@ authorization:
   permission:
     GET: ADMIN, SALES
     PUT: ADMIN, SALES
+
+distance:
+  Origin:
+    DL:
+      SL:
+        days: 2
+        nights: 3
+        distance: 200
+        time: 4.5
+        places: 11, 15, 17
+      MNL:
+        days: 2
+        nights: 3
+        distance: 200
+        time: 4.5
+        places: 11, 15, 17
+      DSL:
+        days: 2
+        nights: 3
+        distance: 200
+        time: 4.5
+        places: 11, 15, 17
+      MCG:
+        days: 2
+        nights: 3
+        distance: 200
+        time: 4.5
+        places: 11, 15, 17
+      KL:
+        days: 2
+        nights: 3
+        distance: 200
+        time: 4.5
+        places: 11, 15, 17
+      SPV:
+        days: 2
+        nights: 3
+        distance: 200
+        time: 4.5
+        places: 11, 15, 17
+      DHL:
+        days: 2
+        nights: 3
+        distance: 200
+        time: 4.5
+        places: 11, 15, 17
+      KIN:
+        days: 2
+        nights: 3
+        distance: 200
+        time: 4.5
+        places: 11, 15, 17
+
+stallion:
+  default:
+    placesCodes:
+      HP:
+        11:
+          title: Shimla
+          uCode: SL
+        15:
+          title: Manali
+          uCode: MNL
+        17:
+          title: "Rohtang Pass"
+          uCode: RP
+        18:
+          title: "Solang Valley"
+          uCode: SLV
+        27:
+          title: Dharamshala
+          uCode: DSL
+        28:
+          title: "Triund Trek"
+          uCode: TT
+        30:
+          title: "McLeod Ganj"
+          uCode: MCG
+        33:
+          title: "Kullu Valley"
+          uCode: KL
+        41:
+          title: "Spiti Valley"
+          uCode: SPV
+        36:
+          title: Dalhousie
+          uCode: DHL
+        44:
+          title: Kinnaur
+          uCode: KIN

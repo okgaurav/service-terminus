@@ -2,7 +2,9 @@ package com.stallion.serviceterminus.resource;
 
 import com.stallion.serviceterminus.model.api.CruiseRequestApiDto;
 import com.stallion.serviceterminus.model.api.TerminalRequestApiDto;
+import com.stallion.serviceterminus.model.entity.Distance;
 import com.stallion.serviceterminus.model.entity.Properties;
+import com.stallion.serviceterminus.model.entity.TerminusCode;
 import com.stallion.serviceterminus.service.TerminalService;
 import com.stallion.serviceterminus.utils.StallionResponseHandler;
 import jakarta.validation.Valid;
@@ -25,11 +27,15 @@ public class CruiseResource {
     private final CruiseService cruiseService;
     private final TerminalService terminalService;
     private final Properties properties;
+    private final Distance distance;
+    private final TerminusCode terminusCode;
 
-    public CruiseResource(CruiseService cruiseService, TerminalService terminalService, Properties properties) {
+    public CruiseResource(CruiseService cruiseService, TerminalService terminalService, Properties properties, Distance distance, TerminusCode terminusCode) {
         this.cruiseService = cruiseService;
         this.terminalService = terminalService;
         this.properties = properties;
+        this.distance = distance;
+        this.terminusCode = terminusCode;
     }
 
     @PostMapping
@@ -62,6 +68,6 @@ public class CruiseResource {
 
     @GetMapping
     public String properties(){
-        return properties.getPermission().toString();
+        return terminusCode.getPlacesCodes().get("HP").toString();
     }
 }
