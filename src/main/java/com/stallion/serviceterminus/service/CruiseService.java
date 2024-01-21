@@ -5,14 +5,18 @@ import com.stallion.serviceterminus.error.TerminusGenericException;
 import com.stallion.serviceterminus.mapper.CruiseMapper;
 import com.stallion.serviceterminus.model.api.CruiseRequestApiDto;
 import com.stallion.serviceterminus.model.entity.Cruise;
+import com.stallion.serviceterminus.model.entity.Terminal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import com.stallion.serviceterminus.repository.CruiseRepository;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static reactor.core.publisher.Mono.error;
 
@@ -45,6 +49,8 @@ public class CruiseService {
     private void setDefaults(CruiseRequestApiDto cruise){
         if(cruise.getStartingTime()==null)
             cruise.setStartingTime(LocalTime.of(0,0));
+        if(cruise.getTerminalList()==null)
+            cruise.setTerminalList(new ArrayList<>());
     }
 
     private void defaultValidation(CruiseRequestApiDto cruise){

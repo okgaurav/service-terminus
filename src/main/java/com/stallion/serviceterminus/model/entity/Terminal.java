@@ -1,16 +1,20 @@
 package com.stallion.serviceterminus.model.entity;
 
+import org.springframework.data.annotation.Id;
+
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 public class Terminal {
+    @Id
     private String terminalId;
     private String source;
     private String destination;
     private Number distance;
     private Medium medium;
     private TravelType Type;
-    private OffsetDateTime operationStart;
-    private OffsetDateTime operationClosure;
+    private LocalDateTime operationStart;
+    private LocalDateTime operationClosure;
 
     public String getTerminalId() {
         return terminalId;
@@ -57,20 +61,20 @@ public class Terminal {
         return this;
     }
 
-    public OffsetDateTime getOperationStart() {
+    public LocalDateTime getOperationStart() {
         return operationStart;
     }
 
-    public Terminal setOperationStart(OffsetDateTime operationStart) {
+    public Terminal setOperationStart(LocalDateTime operationStart) {
         this.operationStart = operationStart;
         return this;
     }
 
-    public OffsetDateTime getOperationClosure() {
+    public LocalDateTime getOperationClosure() {
         return operationClosure;
     }
 
-    public Terminal setOperationClosure(OffsetDateTime operationClosure) {
+    public Terminal setOperationClosure(LocalDateTime operationClosure) {
         this.operationClosure = operationClosure;
         return this;
     }

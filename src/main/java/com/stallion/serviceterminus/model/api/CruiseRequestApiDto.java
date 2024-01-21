@@ -18,7 +18,7 @@ public class CruiseRequestApiDto {
     private String source;
     @NotNull(message = NULL_FIELD)
     private String destination;
-    private List<Terminal> terminalList;
+    private List<TerminalRequestApiDto> terminalList;
     @NotNull(message = NULL_FIELD)
     private LocalDate startingDate;
     private LocalTime startingTime;
@@ -53,11 +53,11 @@ public class CruiseRequestApiDto {
         return this;
     }
 
-    public List<Terminal> getTerminalList() {
+    public List<TerminalRequestApiDto> getTerminalList() {
         return terminalList;
     }
 
-    public CruiseRequestApiDto setTerminalList(List<Terminal> terminalList) {
+    public CruiseRequestApiDto setTerminalList(List<TerminalRequestApiDto> terminalList) {
         this.terminalList = terminalList;
         return this;
     }
